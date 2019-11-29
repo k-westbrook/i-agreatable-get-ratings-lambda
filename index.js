@@ -11,13 +11,29 @@ exports.handler = async function (event) {
     let results = await client.query(`SELECT rating
     FROM public."ratings" WHERE restaurant_id = ${event.pathParameters.restaurantId};`);
 
-    console.log(results.rows)
+    let resultsArray = results.rows;
+    let userRatingNumber = 0;
+    let userRatingTotal = 0;
+    let ratingsInfo = {};
+
+    for (let i = 0; i < resultsArray.length; i++) {
+      userRatingNumber++;
+      userRatingTotal += resultsArray[i].rating;
+    }
+
+
+    ratingsInfo.userRatingNumber = userRatingNumber;
+    if (userRatingNumber > 0) {
+      ratingsInfo.userRatingTotal = userRatingTotal;
+      ratingsInfo.userRatingAverage = userRatingTotal / userRatingNumber;
+    }
+
     let response =
     {
       headers: {
         'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify(results.rows),
+      body: JSON.stringify(ratingsInfo),
 
     };
     return response;

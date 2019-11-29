@@ -18,7 +18,7 @@ exports.handler = async function (event) {
 
     for (let i = 0; i < resultsArray.length; i++) {
       userRatingNumber++;
-      userRatingTotal += resultsArray[i].rating;
+      userRatingTotal += parseInt(resultsArray[i].rating, 10);
     }
 
 

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/k-westbrook/i-agreatable-get-ratings-lambda/issues"
   },
-  "homepage": "https://github.com/k-westbrook/i-agreatable-get-ratings-lambda#readme"
+  "homepage": "https://github.com/k-westbrook/i-agreatable-get-ratings-lambda#readme",
+  "dependencies": {
+    "pg": "^7.14.0"
+  }
 }

@@ -28,6 +28,10 @@ exports.handler = async function (event) {
     if (userRatingNumber > 0) {
       ratingsInfo.userRatingTotal = userRatingTotal;
       ratingsInfo.userRatingAverage = userRatingTotal / userRatingNumber;
+    } else {
+
+      ratingsInfo.userRatingAverage = 'Not Rated Yet';
+      ratingsInfo.userRatingTotal = 0;
     }
 
     let response =

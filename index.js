@@ -9,7 +9,7 @@ exports.handler = async function (event) {
     });
     await client.connect();
     let results = await client.query(`SELECT rating
-    FROM public."ratings" WHERE restaurant_id = ${event.pathParameters.restaurantId};`);
+    FROM public."rating" WHERE restaurant_id = ${event.pathParameters.restaurantId};`);
 
     let resultsArray = results.rows;
     let userRatingNumber = 0;
